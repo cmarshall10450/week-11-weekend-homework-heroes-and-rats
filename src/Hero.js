@@ -21,6 +21,9 @@ Hero.prototype.addTask = function (task) {
   this.tasks.push(task)
 }
 
-
+Hero.prototype.removeTask = function (task) {
+  const index = this.tasks.indexOf(task)
+  this.tasks.splice(index, 1)
+}
 
 module.exports = Hero
