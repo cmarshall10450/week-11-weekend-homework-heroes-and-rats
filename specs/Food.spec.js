@@ -1,5 +1,6 @@
 const assert = require('assert')
 const Food = require('../src/Food')
+const Rat = require('../src/Rat')
 
 describe('Food', function () {
   let food
@@ -19,6 +20,13 @@ describe('Food', function () {
   describe('Poisoned Food', function () {
     it('should not be poisonous to start with', function () {
       assert.strictEqual(food.isPoisionous, false)
+    })
+
+    it('should should be poisonous if it is touched by a rat', function () {
+      const rat = new Rat()
+      rat.touch(food)
+
+      assert.strictEqual(food.isPoisionous, true)
     })
   })
 })
