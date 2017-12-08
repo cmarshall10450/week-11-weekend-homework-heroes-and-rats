@@ -2,6 +2,7 @@ const assert = require('assert')
 const Hero = require('../src/Hero')
 const Food = require('../src/Food')
 const Task = require('../src/Task')
+const Rat = require('../src/Rat')
 
 describe('Hero', function () {
   let hero
@@ -44,6 +45,16 @@ describe('Hero', function () {
       hero.eat(food)
 
       assert.strictEqual(hero.health, 250)
+    })
+
+    it('should lose health if poisonous food is eaten', function () {
+      const food = new Food('Mac & Cheese', 100)
+      const rat = new Rat()
+
+      rat.touch(food)
+      hero.eat(food)
+
+      assert.strictEqual(hero.health, 50)
     })
   })
 
