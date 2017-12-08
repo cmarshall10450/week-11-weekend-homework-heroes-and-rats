@@ -54,4 +54,12 @@ describe('Hero', function () {
     assert.deepStrictEqual(hero.tasks, [task])
   })
 
+  it('should be able to add tasks', function () {
+    const task = new Task(1, 2, 10)
+    hero.addTask(task)
+    hero.removeTask(task)
+
+    assert.deepStrictEqual(hero.tasks, [])
+  })
+
 })
