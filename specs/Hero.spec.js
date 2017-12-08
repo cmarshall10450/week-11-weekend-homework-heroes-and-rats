@@ -91,8 +91,12 @@ describe('Hero', function () {
       assert.deepStrictEqual(hero.tasks, [task2, task3, task1])
     })
 
-    xit('should be able to sort tasks by reward', function () {
+    it('should be able to sort tasks by reward', function () {
+      hero.sortTasks(function (a, b) {
+        return a.reward - b.reward
+      })
 
+      assert.deepStrictEqual(hero.tasks, [task3, task2, task1])
     })
   })
 
