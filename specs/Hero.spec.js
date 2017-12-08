@@ -19,4 +19,13 @@ describe('Hero', function () {
   it('should have a favourite food', function () {
     assert(hero.favouriteFoor, 'Mac & Cheese')
   })
+
+  it('should have an empty list of tasks to start with', function () {
+    assert(hero.tasks, [])
+  })
+
+  it('should be able to talk', function () {
+    const result = hero.talk()
+    assert(result, 'Superman')
+  })
 })
