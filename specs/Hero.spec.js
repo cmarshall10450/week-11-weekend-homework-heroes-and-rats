@@ -1,6 +1,7 @@
 const assert = require('assert')
 const Hero = require('../src/Hero')
 const Food = require('../src/Food')
+const Task = require('../src/Task')
 
 describe('Hero', function () {
   let hero
@@ -44,6 +45,13 @@ describe('Hero', function () {
 
       assert.strictEqual(hero.health, 250)
     })
+  })
+
+  it('should be able to add tasks', function () {
+    const task = new Task(1, 2, 10)
+    hero.addTask(task)
+
+    assert.deepStrictEqual(hero.tasks, [task])
   })
 
 })
