@@ -1,5 +1,6 @@
 const assert = require('assert')
 const Hero = require('../src/Hero')
+const Food = require('../src/Food')
 
 describe('Hero', function () {
   let hero
@@ -27,5 +28,12 @@ describe('Hero', function () {
   it('should be able to talk', function () {
     const result = hero.talk()
     assert.strictEqual(result, 'Superman')
+  })
+
+  it('should be able to eat food to increase health', function () {
+    const food = new Food('Steak', 100)
+    hero.eat(food)
+
+    assert.strictEqual(hero.health, 200)
   })
 })
