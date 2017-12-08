@@ -18,7 +18,7 @@ describe('Hero', function () {
   })
 
   it('should have a favourite food', function () {
-    assert.strictEqual(hero.favouriteFoor, 'Mac & Cheese')
+    assert.strictEqual(hero.favouriteFood, 'Mac & Cheese')
   })
 
   it('should have an empty list of tasks to start with', function () {
@@ -30,10 +30,20 @@ describe('Hero', function () {
     assert.strictEqual(result, 'Superman')
   })
 
-  it('should be able to eat food to increase health', function () {
-    const food = new Food('Steak', 100)
-    hero.eat(food)
+  describe('Food', function () {
+    it('should be able to eat food to increase health', function () {
+      const food = new Food('Steak', 100)
+      hero.eat(food)
 
-    assert.strictEqual(hero.health, 200)
+      assert.strictEqual(hero.health, 200)
+    })
+
+    it('should increase health by 1.5 x the replenishment value if the food is the hero\'s favourite food', function () {
+      const food = new Food('Mac & Cheese', 100)
+      hero.eat(food)
+
+      assert.strictEqual(hero.health, 250)
+    })
   })
+
 })

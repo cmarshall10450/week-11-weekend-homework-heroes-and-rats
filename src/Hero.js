@@ -1,7 +1,7 @@
 const Hero = function (name, health, favouriteFood) {
   this.name = name
   this.health = health
-  this.favouriteFoor = favouriteFood
+  this.favouriteFood = favouriteFood
   this.tasks = []
 }
 
@@ -10,7 +10,11 @@ Hero.prototype.talk = function () {
 }
 
 Hero.prototype.eat = function (food) {
-  this.health += food.replenishmentValue
+  if (this.favouriteFood === food.name) {
+    this.health += food.replenishmentValue * 1.5
+  } else {
+    this.health += food.replenishmentValue
+  }
 }
 
 module.exports = Hero
