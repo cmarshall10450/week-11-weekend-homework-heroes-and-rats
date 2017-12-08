@@ -62,4 +62,34 @@ describe('Hero', function () {
     assert.deepStrictEqual(hero.tasks, [])
   })
 
+  describe('Sorting Tasks', function () {
+    let task1, task2, task3
+
+    beforeEach(function () {
+      task1 = new Task(1, 4, 100)
+      task2 = new Task(3, 1, 50)
+      task3 = new Task(2, 3, 25)
+
+      hero.addTask(task1)
+      hero.addTask(task2)
+      hero.addTask(task3)
+    })
+
+    it('should be able to sort tasks by difficulty', function () {
+      hero.sortTasks(function (a, b) {
+        return a.difficultyLevel - b.difficultyLevel
+      })
+
+      assert.deepStrictEqual(hero.tasks, [task1, task3, task2])
+    })
+
+    xit('should be able to sort tasks by urgency', function () {
+
+    })
+
+    xit('should be able to sort tasks by reward', function () {
+
+    })
+  })
+
 })

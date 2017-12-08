@@ -26,4 +26,8 @@ Hero.prototype.removeTask = function (task) {
   this.tasks.splice(index, 1)
 }
 
+Hero.prototype.sortTasks = function (cb) {
+  this.tasks.sort(cb)
+}
+
 module.exports = Hero
