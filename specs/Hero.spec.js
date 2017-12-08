@@ -7,11 +7,11 @@ describe('Hero', function () {
   let hero
 
   beforeEach(function () {
-    hero = new Hero('Superman', 100, 'Mac & Cheese')
+    hero = new Hero('Chuck Norris', 100, 'Mac & Cheese')
   })
 
   it('should have a name', function () {
-    assert.strictEqual(hero.name, 'Superman')
+    assert.strictEqual(hero.name, 'Chuck Norris')
   })
 
   it('should have a health value', function () {
@@ -28,7 +28,7 @@ describe('Hero', function () {
 
   it('should be able to talk', function () {
     const result = hero.talk()
-    assert.strictEqual(result, 'Superman')
+    assert.strictEqual(result, 'Chuck Norris')
   })
 
   describe('Food', function () {
@@ -83,8 +83,12 @@ describe('Hero', function () {
       assert.deepStrictEqual(hero.tasks, [task1, task3, task2])
     })
 
-    xit('should be able to sort tasks by urgency', function () {
+    it('should be able to sort tasks by urgency', function () {
+      hero.sortTasks(function (a, b) {
+        return a.urgencyLevel - b.urgencyLevel
+      })
 
+      assert.deepStrictEqual(hero.tasks, [task2, task3, task1])
     })
 
     xit('should be able to sort tasks by reward', function () {
