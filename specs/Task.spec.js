@@ -23,4 +23,12 @@ describe('Task', function () {
   it('should be marked as not completed at the start', function () {
     assert.strictEqual(task.completed, false)
   })
+
+  it('should be able to toggle completion status', function () {
+    assert.strictEqual(task.completed, false)
+
+    task.toggleCompletion()
+
+    assert.strictEqual(task.completed, true)
+  })
 })
